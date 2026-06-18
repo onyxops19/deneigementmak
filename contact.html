@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Soumission gratuite — Déneigement MAK Excavation</title>
+  <meta name="description" content="Demandez votre soumission gratuite pour déneigement résidentiel ou travaux d'excavation à Saint-Colomban et dans les Laurentides. Réponse en moins de 24 heures.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@800&family=Poppins:wght@500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    /* ── CONTACT PAGE — page-specific styles ── */
+
+    .contact-hero {
+      padding-top: calc(70px + 100px);
+      padding-bottom: 100px;
+      position: relative;
+      background-image: url('Pictures/unnamed%20(13).webp');
+      background-size: cover;
+      background-position: center 40%;
+      background-repeat: no-repeat;
+    }
+    .contact-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        135deg,
+        rgba(28, 25, 22, 0.82) 0%,
+        rgba(30, 45, 61, 0.70) 100%
+      );
+      z-index: 0;
+    }
+    .contact-hero .container {
+      position: relative;
+      z-index: 1;
+    }
+    .contact-hero__eyebrow { margin-bottom: 1.25rem; }
+    .contact-hero__eyebrow .pill {
+      border-color: rgba(255,255,255,0.4);
+      color: #fff;
+    }
+    .contact-hero__h1 {
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: clamp(2.8rem, 6vw, 5rem);
+      text-transform: uppercase;
+      color: #fff;
+      line-height: 0.93;
+      margin-bottom: 1.25rem;
+    }
+    .contact-hero__sub {
+      color: rgba(255,255,255,0.65);
+      font-size: 1rem;
+      max-width: 50ch;
+      margin-bottom: 2rem;
+      line-height: 1.65;
+    }
+    .contact-hero__badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      color: rgba(255,255,255,0.75);
+      font-size: 0.875rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+    }
+    .contact-hero__badge::before {
+      content: '✓ ';
+      color: var(--c-accent);
+    }
+
+    /* ── BODY LAYOUT ── */
+    .contact-body { padding-block: 80px; }
+    .contact-body__inner {
+      display: grid;
+      grid-template-columns: 3fr 2fr;
+      gap: 60px;
+      align-items: start;
+    }
+
+    /* ── FULL FORM ── */
+    .cf__title {
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: 1.5rem;
+      text-transform: uppercase;
+      color: var(--c-ink);
+      margin-bottom: 0.5rem;
+    }
+    .cf__sub {
+      font-size: 0.875rem;
+      color: rgba(28,25,22,0.55);
+      margin-bottom: 2rem;
+    }
+    .cf__row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+    .cf__field { margin-bottom: 1.25rem; }
+    .cf__label {
+      display: block;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: rgba(28,25,22,0.6);
+      margin-bottom: 0.4rem;
+    }
+    .cf__input,
+    .cf__select,
+    .cf__textarea {
+      width: 100%;
+      padding: 0.8rem 1rem;
+      border: 1.5px solid var(--c-hairline);
+      border-radius: var(--r-btn);
+      font-family: var(--font-body);
+      font-size: 0.9375rem;
+      color: var(--c-ink);
+      background: #fff;
+      outline: none;
+      transition: border-color 0.25s var(--ease);
+      appearance: none;
+      -webkit-appearance: none;
+    }
+    .cf__input:focus,
+    .cf__select:focus,
+    .cf__textarea:focus {
+      border-color: var(--c-accent);
+    }
+    .cf__select {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%231C1916' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 0.75rem center;
+      padding-right: 2.5rem;
+    }
+    .cf__textarea {
+      resize: vertical;
+      min-height: 130px;
+      line-height: 1.6;
+    }
+    .cf__submit {
+      width: 100%;
+      margin-top: 0.5rem;
+      padding: 1rem;
+      font-size: 1rem;
+    }
+
+    /* ── INFO PANEL ── */
+    .contact-info {
+      background: var(--c-room-color1);
+      border-radius: 8px;
+      padding: 2.5rem;
+      color: #fff;
+      position: sticky;
+      top: 90px;
+    }
+    .contact-info__title {
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: 1.125rem;
+      text-transform: uppercase;
+      color: #fff;
+      margin-bottom: 2rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid rgba(255,255,255,0.12);
+    }
+    .contact-info__item {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+      margin-bottom: 1.5rem;
+    }
+    .contact-info__icon {
+      width: 20px;
+      height: 20px;
+      flex-shrink: 0;
+      color: var(--c-accent);
+      margin-top: 2px;
+    }
+    .contact-info__label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.5);
+      margin-bottom: 0.2rem;
+    }
+    .contact-info__value {
+      font-size: 0.9375rem;
+      color: #fff;
+      line-height: 1.5;
+    }
+    .contact-info__value a {
+      color: var(--c-accent);
+      text-decoration: none;
+    }
+    .contact-info__value a:hover { text-decoration: underline; }
+    .contact-info__divider {
+      border: none;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      margin: 1.5rem 0;
+    }
+    .contact-info__why-title {
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: 0.875rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: rgba(255,255,255,0.5);
+      margin-bottom: 1rem;
+    }
+    .contact-info__why-list { list-style: none; }
+    .contact-info__why-list li {
+      font-size: 0.875rem;
+      color: rgba(255,255,255,0.75);
+      padding: 0.4rem 0 0.4rem 1.25rem;
+      position: relative;
+      line-height: 1.5;
+    }
+    .contact-info__why-list li::before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      color: var(--c-accent);
+    }
+
+    /* ── ACTIVE NAV LINK ── */
+    .nav__link--active {
+      color: var(--c-accent) !important;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .contact-body__inner { grid-template-columns: 1fr; }
+      .contact-info { position: static; }
+    }
+    @media (max-width: 600px) {
+      .cf__row { grid-template-columns: 1fr; }
+      .contact-hero { padding-top: calc(70px + 60px); padding-bottom: 60px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav class="nav nav--solid" id="main-nav" aria-label="Navigation principale">
+  <div class="nav__inner container">
+    <a href="index.html" class="nav__logo" aria-label="Déneigement MAK Excavation — Accueil">
+      <svg class="nav__logo-mark" viewBox="0 0 200 160" fill="none" aria-hidden="true">
+        <polygon points="0,160 0,0 30,0 100,78 170,0 200,0 200,160 170,160 170,36 100,108 30,36 30,160" fill="#F2BD1E"/>
+      </svg>
+      <div class="nav__logo-text">MAK<span>Déneigement · Excavation</span></div>
+    </a>
+    <ul class="nav__links" role="list">
+      <li><a href="index.html"              class="nav__link">Accueil</a></li>
+      <li><a href="index.html#services"     class="nav__link">Services</a></li>
+      <li><a href="index.html#realisations" class="nav__link">Réalisations</a></li>
+      <li><a href="index.html#avis"         class="nav__link">Avis</a></li>
+      <li><a href="index.html#regions"      class="nav__link">Régions</a></li>
+      <li><a href="contact.html"            class="nav__link nav__link--active">Contact</a></li>
+    </ul>
+    <a href="tel:5142972370" class="nav__cta btn btn--primary">(514) 297-2370</a>
+    <button class="nav__hamburger" id="hamburger" aria-expanded="false" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="nav__mobile" id="mobile-nav" aria-label="Menu mobile">
+    <ul role="list">
+      <li><a href="index.html"              class="nav__mobile-link" data-close-nav>Accueil</a></li>
+      <li><a href="index.html#services"     class="nav__mobile-link" data-close-nav>Services</a></li>
+      <li><a href="index.html#realisations" class="nav__mobile-link" data-close-nav>Réalisations</a></li>
+      <li><a href="index.html#avis"         class="nav__mobile-link" data-close-nav>Avis</a></li>
+      <li><a href="index.html#regions"      class="nav__mobile-link" data-close-nav>Régions</a></li>
+      <li><a href="contact.html"            class="nav__mobile-link" data-close-nav>Contact</a></li>
+    </ul>
+    <a href="tel:5142972370" class="btn btn--primary">Appeler maintenant</a>
+  </div>
+</nav>
+
+<!-- ── PAGE HERO ── -->
+<section class="contact-hero" aria-labelledby="contact-hero-heading">
+  <div class="container">
+    <p class="contact-hero__eyebrow">
+      <span class="pill">Soumission gratuite</span>
+    </p>
+    <h1 class="contact-hero__h1" id="contact-hero-heading">
+      Demandez votre<br>soumission gratuite
+    </h1>
+    <p class="contact-hero__sub">
+      Réponse garantie en moins de 24 heures. Service disponible pour Saint-Colomban et toute la région des Laurentides.
+    </p>
+    <div class="contact-hero__badges" aria-label="Garanties">
+      <span class="contact-hero__badge">Sans engagement</span>
+      <span class="contact-hero__badge">Réponse rapide</span>
+      <span class="contact-hero__badge">Estimation précise</span>
+    </div>
+  </div>
+</section>
+
+<!-- ── MAIN CONTENT ── -->
+<section class="contact-body s-light" aria-labelledby="contact-form-heading">
+  <div class="container">
+    <div class="contact-body__inner">
+
+      <!-- Left: full form -->
+      <div class="cf">
+        <h2 class="cf__title" id="contact-form-heading">Votre demande</h2>
+        <p class="cf__sub">Remplissez le formulaire et nous vous répondrons dans les 24 heures.</p>
+
+        <form
+          action="mailto:deneigement.mak@gmail.com"
+          method="post"
+          enctype="text/plain"
+          novalidate
+          aria-label="Formulaire de soumission"
+        >
+          <!-- Row 1: name -->
+          <div class="cf__row">
+            <div class="cf__field">
+              <label class="cf__label" for="cf-prenom">Prénom</label>
+              <input class="cf__input" id="cf-prenom" name="Prénom" type="text"
+                     placeholder="Jean" autocomplete="given-name" required>
+            </div>
+            <div class="cf__field">
+              <label class="cf__label" for="cf-nom">Nom de famille</label>
+              <input class="cf__input" id="cf-nom" name="Nom" type="text"
+                     placeholder="Tremblay" autocomplete="family-name" required>
+            </div>
+          </div>
+
+          <!-- Row 2: contact -->
+          <div class="cf__row">
+            <div class="cf__field">
+              <label class="cf__label" for="cf-tel">Téléphone</label>
+              <input class="cf__input" id="cf-tel" name="Téléphone" type="tel"
+                     placeholder="(514) 000-0000" autocomplete="tel" required>
+            </div>
+            <div class="cf__field">
+              <label class="cf__label" for="cf-email">Courriel</label>
+              <input class="cf__input" id="cf-email" name="Courriel" type="email"
+                     placeholder="jean@exemple.com" autocomplete="email" required>
+            </div>
+          </div>
+
+          <!-- Address -->
+          <div class="cf__field">
+            <label class="cf__label" for="cf-adresse">Adresse / Municipalité</label>
+            <input class="cf__input" id="cf-adresse" name="Adresse" type="text"
+                   placeholder="123 Rue Principale, Saint-Colomban" autocomplete="street-address">
+          </div>
+
+          <!-- Service -->
+          <div class="cf__field">
+            <label class="cf__label" for="cf-service">Service désiré</label>
+            <select class="cf__select" id="cf-service" name="Service" required>
+              <option value="" disabled selected>Choisir un service…</option>
+              <option value="Déneigement résidentiel">Déneigement résidentiel</option>
+              <option value="Excavation et drainage">Excavation et drainage</option>
+              <option value="Remblayage">Remblayage</option>
+              <option value="Terrassement">Terrassement et mise en forme</option>
+              <option value="Démolition">Démolition</option>
+              <option value="Murs de soutènement">Murs de soutènement</option>
+              <option value="Autre">Autre / Plusieurs services</option>
+            </select>
+          </div>
+
+          <!-- Description -->
+          <div class="cf__field">
+            <label class="cf__label" for="cf-description">Description du projet</label>
+            <textarea class="cf__textarea" id="cf-description" name="Description" rows="5"
+                      placeholder="Décrivez brièvement votre projet — superficie, type de terrain, délai souhaité, etc."></textarea>
+          </div>
+
+          <!-- Source -->
+          <div class="cf__field">
+            <label class="cf__label" for="cf-source">Comment avez-vous entendu parler de nous?</label>
+            <select class="cf__select" id="cf-source" name="Source">
+              <option value="" disabled selected>Choisir…</option>
+              <option value="Recommandation">Recommandation d'un ami / voisin</option>
+              <option value="Google">Recherche Google</option>
+              <option value="Kijiji">Kijiji</option>
+              <option value="Facebook">Facebook / Instagram</option>
+              <option value="Autre">Autre</option>
+            </select>
+          </div>
+
+          <button class="btn btn--primary cf__submit" type="submit">
+            Envoyer ma demande
+          </button>
+        </form>
+      </div>
+
+      <!-- Right: info panel -->
+      <aside class="contact-info" aria-label="Coordonnées">
+        <p class="contact-info__title">Contactez-nous directement</p>
+
+        <div class="contact-info__item">
+          <svg class="contact-info__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+            <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/>
+          </svg>
+          <div>
+            <p class="contact-info__label">Téléphone</p>
+            <p class="contact-info__value"><a href="tel:5142972370">(514) 297-2370</a></p>
+          </div>
+        </div>
+
+        <div class="contact-info__item">
+          <svg class="contact-info__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+            <polyline points="22,6 12,13 2,6"/>
+          </svg>
+          <div>
+            <p class="contact-info__label">Courriel</p>
+            <p class="contact-info__value"><a href="mailto:deneigement.mak@gmail.com">deneigement.mak@gmail.com</a></p>
+          </div>
+        </div>
+
+        <div class="contact-info__item">
+          <svg class="contact-info__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/>
+            <circle cx="12" cy="10" r="3"/>
+          </svg>
+          <div>
+            <p class="contact-info__label">Adresse</p>
+            <p class="contact-info__value">528 Montée de L'Église<br>Saint-Colomban, QC J5K 2J2</p>
+          </div>
+        </div>
+
+        <div class="contact-info__item">
+          <svg class="contact-info__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+            <circle cx="12" cy="12" r="10"/>
+            <polyline points="12,6 12,12 16,14"/>
+          </svg>
+          <div>
+            <p class="contact-info__label">Disponibilité</p>
+            <p class="contact-info__value">Hiver — 24 h / 7 j<br>Été — lun.–ven. 7 h à 18 h</p>
+          </div>
+        </div>
+
+        <hr class="contact-info__divider">
+
+        <p class="contact-info__why-title">Pourquoi nous choisir</p>
+        <ul class="contact-info__why-list">
+          <li>Plus de 10 ans d'expérience dans les Laurentides</li>
+          <li>Réponse garantie en moins de 24 heures</li>
+          <li>Service 24/7 lors des tempêtes hivernales</li>
+          <li>Estimation sans frais, sans engagement</li>
+        </ul>
+      </aside>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer class="footer s-dark" id="contact-footer" aria-labelledby="footer-brand-contact">
+
+  <svg class="footer__watermark" viewBox="0 0 200 160" fill="none" aria-hidden="true">
+    <polygon points="0,160 0,0 30,0 100,78 170,0 200,0 200,160 170,160 170,36 100,108 30,36 30,160" fill="currentColor"/>
+  </svg>
+
+  <div class="container">
+    <div class="footer__inner">
+
+      <div class="footer__brand">
+        <a href="index.html" class="footer__logo" id="footer-brand-contact" aria-label="Déneigement MAK Excavation — Accueil">
+          <svg class="footer__logo-mark" viewBox="0 0 200 160" fill="none" aria-hidden="true">
+            <polygon points="0,160 0,0 30,0 100,78 170,0 200,0 200,160 170,160 170,36 100,108 30,36 30,160" fill="#F2BD1E"/>
+          </svg>
+          <div class="footer__logo-text">
+            MAK
+            <span>Déneigement · Excavation</span>
+          </div>
+        </a>
+        <p class="footer__tagline">
+          Entreprise familiale à Saint-Colomban, Québec. Déneigement résidentiel 24/7 et travaux d'excavation réalisés avec passion et méthode depuis plus de 10 ans.
+        </p>
+        <a href="contact.html" class="btn btn--primary">Soumission gratuite</a>
+      </div>
+
+      <nav aria-label="Navigation du pied de page">
+        <p class="footer__nav-title">Navigation</p>
+        <ul class="footer__nav" role="list">
+          <li><a href="index.html#services"     class="footer__nav-link">Nos Services</a></li>
+          <li><a href="index.html#realisations" class="footer__nav-link">Réalisations</a></li>
+          <li><a href="index.html#avis"         class="footer__nav-link">Avis clients</a></li>
+          <li><a href="index.html#regions"      class="footer__nav-link">Régions desservies</a></li>
+          <li><a href="contact.html"            class="footer__nav-link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <address class="footer__contact" style="font-style:normal">
+        <p class="footer__nav-title">Nous joindre</p>
+        <a href="tel:5142972370" class="footer__contact-item">
+          <svg class="footer__contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+          (514) 297-2370
+        </a>
+        <a href="mailto:deneigement.mak@gmail.com" class="footer__contact-item">
+          <svg class="footer__contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          deneigement.mak@gmail.com
+        </a>
+        <p class="footer__contact-item" style="cursor:default">
+          <svg class="footer__contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          528 Montée de L'Église,<br>Saint-Colomban, QC J5K 2J2
+        </p>
+      </address>
+
+    </div>
+
+    <div class="footer__cta-block">
+      <p class="footer__cta-label">Soumission gratuite.<br>Sans engagement.</p>
+      <a href="contact.html" class="btn btn--primary">Demander une soumission</a>
+    </div>
+
+    <div class="footer__legal">
+      <p class="footer__legal-text">© 2024 Déneigement MAK Excavation. Tous droits réservés.</p>
+      <p class="footer__legal-text">Saint-Colomban, Québec · <a href="tel:5142972370" class="footer__legal-link">(514) 297-2370</a></p>
+    </div>
+
+  </div>
+</footer>
+
+<style>.visually-hidden{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}</style>
+
+<script src="js/main.js" defer></script>
+
+<!-- Pre-fill from URL params (set by mini form in section 2) -->
+<script>
+(function () {
+  const params = new URLSearchParams(window.location.search);
+  if (params.get('nom')) {
+    const parts = params.get('nom').split(' ');
+    document.getElementById('cf-prenom').value = parts[0] || '';
+    document.getElementById('cf-nom').value    = parts.slice(1).join(' ') || '';
+  }
+  if (params.get('tel'))   document.getElementById('cf-tel').value   = params.get('tel');
+  if (params.get('email')) document.getElementById('cf-email').value = params.get('email');
+})();
+</script>
+
+</body>
+</html>
